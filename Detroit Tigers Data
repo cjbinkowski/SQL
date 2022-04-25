@@ -8,7 +8,7 @@ First_Name text NOT NULL,
 Last_Name text NOT NULL);
 
 CREATE TABLE Games
-(Game_ID integer,
+(Game_ID integer PRIMARY KEY,
 Opponent text NOT NULL,
 Pitcher_Name text NOT NULL,
 Pitcher_Arm text NOT NULL,
