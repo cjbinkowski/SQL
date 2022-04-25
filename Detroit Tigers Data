@@ -1,0 +1,57 @@
+#This database and analysis is created to help observe how each player performs over the season. Points are determined by rules followed by a family competition where a family member picks a player for each series and collects points with the player. Hopefully this will help get me above last place, which is where I ranked last season.
+  
+
+##Creation of data tables
+CREATE TABLE Players
+(ID integer Primary Key,
+First_Name text NOT NULL,
+Last_Name text NOT NULL);
+
+CREATE TABLE Games
+(Game_ID integer,
+Opponent text NOT NULL,
+Pitcher_Name text NOT NULL,
+Pitcher_Arm text NOT NULL,
+Date text);
+
+CREATE TABLE Result
+(Game_ID integer NOT NULL,
+Player_ID integer NOT NULL,
+Points integer NOT NULL,
+First text,
+Second text,
+Third text,
+Fourth text,
+Fifth text) ;
+/* First, etc., refer to what was done at each at bat. Columns will often have NULL values due to variation in at bats per game*/
+
+
+ALTER TABLE Results ADD COLUMN RBIs integer DEFAULT 0;
+ALTER TABLE Results ADD COLUMN Runs integer DEFAULT 0;
+/* These columns were overlooked when first creating the table so they were just added on afterwards. Setting Default to 0 means there will always be a value. Otherwise when no Runs or RBIs were achieved, setting to 0 might be forgotten.*/
+
+##Inserting Data
+
+INSERT INTO Players (First_Name, Last_Name) 
+VALUES 
+('Robbie', 'Grossman'),
+('Austin', 'Meadows'),
+('Javier', 'Baez'),
+('Jeimer', 'Candelario'),
+('Miguel', 'Cabrera'),
+('Johnathan', 'Schoop'),
+('Akil', 'Baddoo'),
+('Spencer', 'Torkelson');
+
+SELECT * FROM Players; #####/* I wasn't sure if the ID would autoincrement so I checked here before adding the rest of the players*/
+
+INSERT INTO Players (First_Name, Last_Name)
+VALUES
+('Tucker', 'Barnhart'),
+('Eric', 'Haase'),
+('Victor', 'Reyes'),
+('Harold', 'Castro'),
+('Dustin', 'Garneau'),
+('Willi', 'Castro'),
+('Daz', 'Cameron'),
+('Derek', 'Hill');
