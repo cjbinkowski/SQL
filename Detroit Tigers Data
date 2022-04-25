@@ -55,3 +55,35 @@ VALUES
 ('Willi', 'Castro'),
 ('Daz', 'Cameron'),
 ('Derek', 'Hill');
+
+INSERT INTO Games (Opponent, Pitcher_Name, Pitcher_arm, date)
+VALUES 
+('White Sox', 'Graveman', 'R', '0408'),
+('White Sox','Cease', 'R', '0409'),
+('White Sox','Kopech', 'R', '0410'),
+('Red Sox', 'Wacha', 'R', '0411'),
+('Red Sox', 'Hill', 'L', '0412'),
+('Red Sox', 'Eovaldi', 'R', '0411'),
+('Royals', 'Greinke', 'R', '0414'),
+('Royals', 'Keller', 'R', '0415'),
+('Royals', 'Bubic', 'L', '0416'),
+('Yankees', 'Cole', 'R', '0419'),
+('Yankees', 'Severino', 'R', '0420'),
+('Yankees', 'Montgomery', 'L', '0421'),
+('Rockies', 'Senzatela', 'R', '0423'),
+('Rockies', 'Gomber', 'L', '0423'),
+('Rockies', 'Kuhl' ,' R', '0424');
+
+
+INSERT INTO Results 
+VALUES (1, 1, 3, 'BB', 'K', 'HBP', '1B', 'K', 2,0),
+(1, 2, 8, 'FO', 'BB', 'BB', 'BB', '3B', 2, 0),
+(1, 3, 1, 'K', 'K', 'FO', '1B', '1B', 0,1),
+(1, 4, 1, 'FO', 'FO', '1B', '1B',NULL , 0, 1),
+(1, 5, 2, 'K', 'GO', '?', '1B',NULL , 0, 2),
+(1, 6, 3, '2B', 'FO', 'GO', 'HBP', NULL, 0,0 ),
+(1, 7, -1, 'K', 'FO', 'PO', 'GO',NULL,0, 0),
+(1, 8, -2, 'PO', 'FO', 'K', 'K' , NULL,0 ,0),
+(1, 9, -2, 'K', 'GO', 'K',NULL ,NULL, 0, 0),
+(1, 10, 6,NULL ,NULL ,NULL ,'HR',NULL ,1,1);
+  
