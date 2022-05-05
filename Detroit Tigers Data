@@ -107,3 +107,29 @@ FROM
 WHERE R.First NOT NULL
   AND Pitcher_Arm LIKE '%L%'
 Group BY P.ID;
+
+####Outputting the total strikeout count for each player over all games
+SELECT P.Last_Name, 
+COUNT(K1) + COUNT(K2) + COUNT(K3) + COUNT(K4) + COUNT(K5) AS K 
+FROM 
+  (SELECT P.Last_Name, 
+  CASE
+    WHEN R.First='K' THEN 'K'
+    END AS K1,
+  CASE   
+    WHEN R.Second='K' THEN 'K' 
+    END AS K2,
+  CASE   
+    WHEN R.Third='K' THEN 'K' 
+    END AS K3,
+  CASE 
+    WHEN R.Fourth='K' THEN 'K' 
+    END AS K4,
+  CASE 
+    WHEN R.Fifth='K' THEN 'K'
+    END AS K5
+  FROM Results R 
+   JOIN Players P 
+   ON P.ID=R.PLAYER_ID)
+GROUP BY LAST_NAME
+ORDER BY K;
