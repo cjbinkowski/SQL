@@ -1,10 +1,14 @@
+#### This document contains SQL commands written by me to create a table for a hypothetical clothing store and to show requested details about the store
+##### Table creation
+``` 
 CREATE TABLE merchandise
 (ID integer primary key, 
 item text,
 clothing_type text,
 price integer,
 profit integer);
-
+```
+```
 INSERT INTO merchandise VALUES
 (1, "long sleeve", "top", 10, 5),
 (2, "turtle neck", "top", 15, 7),
@@ -21,10 +25,13 @@ INSERT INTO merchandise VALUES
 (13, "formal dress", "full", 30, 15),
 (14, "circle skirt", "bottom", 15, 8),
 (15, "t shirt", "top", 10, 5);
-
-SELECT * FROM merchandise ORDER BY price;
-SELECT item, MAX(profit) FROM merchandise;
-SELECT COUNT (clothing_type) AS top_number FROM merchandise WHERE clothing_type= 'top' ;
+```
+#####  Show all items in the table organized by price
+``SELECT * FROM merchandise ORDER BY price;``
+##### Show the item with the largest profit 
+``SELECT item, MAX(profit) FROM merchandise;``
+##### Find the number of clothing items with type 'top' 
+``SELECT COUNT (clothing_type) AS top_number FROM merchandise WHERE clothing_type= 'top' ;``
 
 
 
