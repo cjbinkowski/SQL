@@ -1,6 +1,6 @@
-/*table entries were created by another user
-  queries were created by me*/
-
+### This document includes a table name winstons_donut_logs which was created by another individual. I used this data to create queries that show significant details about that data while practicing SQL skills
+#### ~Table creation 
+```
 CREATE TABLE winstons_donut_logs (
     id TEXT PRIMARY KEY,
     status TEXT,
@@ -62,12 +62,14 @@ INSERT INTO winstons_donut_logs VALUES (50, "old-ish adult winston lvl1", 50, 25
 INSERT INTO winstons_donut_logs VALUES (51, "old-ish adult winston lvl2", 51, 2500, "");
 INSERT INTO winstons_donut_logs VALUES (52, "old-ish adult winston lvl3", 52, 2500, "");
 INSERT INTO winstons_donut_logs VALUES (53, "old-ish adult winston lvl4", 53, 1436, "Current age");
+```
+#### ~Creating a list of reasons and the average of donuts eaten in the corresponding years
+```
+SELECT reason from winstons_donut_logs GROUP BY reason;
+```
+  used to find all reasons listed
 
-
-/*SELECT reason from winstons_donut_logs GROUP BY reason;
-  used to find all reasons listed*/
-
-/*categorize reasons and show how often they were used and the average donuts eaten on years with that reason*/
+```
 select count(*),
 ROUND( AVG (donuts_eaten)) AS AVG_donuts_eaten, reason 
 FROM winstons_donut_logs 
@@ -79,8 +81,9 @@ WHERE reason LIKE "%eating%"
     OR reason LIKE "%braces%"
 GROUP BY reason
 ORDER BY AVG_donuts_eaten DESC;
-
-/*shows donuts eaten in the years of an age range and the averag donuts eaten per year in that age range*/
+```
+#### ~Showing donuts eaten in the years of an age range and the average donuts eaten per year in that age range
+```
 SELECT  SUM(donuts_eaten) AS donuts_eaten_by_agegroup, ROUND(AVG (donuts_eaten)) AS avg_eaten_yearly ,
 CASE
     WHEN years_old <11 THEN "10 and under"
@@ -93,24 +96,30 @@ CASE
 FROM winstons_donut_logs
 GROUP BY Age_group
 ORDER BY donuts_eaten_by_agegroup DESC;
-
-/*shows total number of donuts eaten over all years*/
+```
+#### ~Finding total number of donuts eaten over all years
+```
 SELECT SUM(donuts_eaten) AS Total_donuts_eaten 
 FROM winstons_donut_logs;
+```
 
-/*shows ages when the max amount of donuts were eaten*/
+#### ~Finding ages when the max amount of donuts were eaten
+```
 SELECT years_old AS Years_when_ate_max, reason 
 FROM winstons_donut_logs
 WHERE donuts_eaten=(SELECT MAX(donuts_eaten) FROM winstons_donut_logs);
-
-/*shows ages when fewer donuts were eaten than the average, the donuts eaten in those years, and reasons given*/
+```
+#### ~Showing ages when fewer donuts were eaten than the average, the donuts eaten in those years, and reasons given
+```
 SELECT years_old AS below_avg_years, donuts_eaten, reason 
 FROM winstons_donut_logs 
 WHERE donuts_eaten < (SELECT ROUND(AVG(donuts_eaten)) FROM winstons_donut_logs)
 ORDER BY donuts_eaten;
-
-/*shows years when a reason stating healthy eating/diet concerns resulted in eating fewer donuts than average*/
+```
+#### ~Finding ages when a reason stating healthy eating/diet concerns resulted in eating fewer donuts than average
+```
 SELECT years_old AS Years_diet_helped
 FROM winstons_donut_logs
 WHERE (donuts_eaten < (SELECT ROUND(AVG(donuts_eaten)) FROM  winstons_donut_logs)) 
 AND (reason LIKE "diet" OR reason LIKE "healthier%") ;
+```
