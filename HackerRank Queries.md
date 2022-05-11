@@ -1,6 +1,6 @@
 ### Included are a collection of challenges from HackerRank and the queries I created to solve them.
 
-#### Easier Prompts
+### ~Easier Prompts
 **Query the list of CITY names starting with vowels (i.e., a, e, i, o, or u) from STATION. Your result cannot contain duplicates**
 ```
 SELECT DISTINCT CITY 
@@ -25,7 +25,7 @@ SELECT DISTINCT CITY
   FROM STATION
   WHERE CITY LIKE '[^AEIOU]%';
 ```  
-#### More Complex Prompts 
+### ~More Complex Prompts 
  **Query the Name of any student in STUDENTS who scored higher than  Marks. Order your output by the last three characters of each name. If two or more students both have names ending in the same last three characters (i.e.: Bobby, Robby, etc.), secondary sort them by ascending ID.**
 ```
 SELECT NAME 
@@ -43,7 +43,7 @@ SELECT NAME
  
  d happens to equal the maximum value in Western Longitude (LONG_W in STATION).
  
- Query the Manhattan Distance between points P1 and P2 and round it to a scale of 4` decimal places.
+ **Query the Manhattan Distance between points P1 and P2 and round it to a scale of 4 decimal places.**
 ```
 SELECT 
   ABS(
