@@ -31,8 +31,10 @@ First, etc., refer to what was done at each at bat. Columns will often have NULL
 
 
 ``ALTER TABLE Results ADD COLUMN RBIs integer DEFAULT 0;``
+
 ``ALTER TABLE Results ADD COLUMN Runs integer DEFAULT 0;``
-####These columns were overlooked when first creating the table so they were just added on afterwards. Setting Default to 0 means there will always be a value. Otherwise when no Runs or RBIs were achieved, setting to 0 might be forgotten.*/
+
+These columns were overlooked when first creating the table so they were just added on afterwards. Setting Default to 0 means there will always be a value. Otherwise when no Runs or RBIs were achieved, setting to 0 might be forgotten.*/
 
 #### Inserting Data
 ```
