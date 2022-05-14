@@ -147,3 +147,23 @@ FROM
 GROUP BY LAST_NAME
 ORDER BY K;
 ```
+Adding to the previous query, I introduced a game count (of games each player actually played in) by adding a select of game_id in the innermost select, added a game_id count, then introduced a new select for the calculation. This way, I could determine strikeouts per game. Since the numbers are categorized as integers, 'cast as float' was needed to return a decimal rather than an integer.
+```
+SELECT LAST_NAME, ROUND(CAST(K as FLOAT) / CAST(GAMES as FLOAT),3) as K_perc 
+ FROM (SELECT LAST_NAME, (COUNT(K1)+COUNT(K2)+COUNT(K3)+COUNT(K4)+COUNT(K5)) AS K, COUNT(GAME_ID) AS GAMES 
+  FROM 
+   (SELECT LAST_NAME, GAME_ID, 
+   CASE
+    WHEN First='K' THEN 'K' END AS K1,
+   CASE    
+    WHEN Second='K' THEN 'K' END AS K2,
+   CASE
+    WHEN Third='K' THEN 'K' END AS K3,
+   CASE 
+    WHEN Fourth='K' THEN 'K' END AS K4,
+   CASE
+    WHEN Fifth='K' THEN 'K' END AS K5
+  FROM RESULTS R JOIN PLAYERS P ON P.ID=R.PLAYER_ID)
+ GROUP BY LAST_NAME)
+ORDER BY K_perc;
+   ```
