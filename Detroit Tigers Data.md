@@ -147,9 +147,9 @@ FROM
 GROUP BY LAST_NAME
 ORDER BY K;
 ```
-Adding to the previous query, I introduced a game count (of games each player actually played in) by adding a select of game_id in the innermost select, added a game_id count, then introduced a new select for the calculation. This way, I could determine strikeouts per game. Since the numbers are categorized as integers, 'cast as float' was needed to return a decimal rather than an integer.
+Adding to the previous query, I introduced a game count (of games each player actually played in) by adding a select of game_id in the innermost select, added a game_id count, then introduced a new select for the calculation. This way, I could determine strikeout per game ratio. Since the numbers are categorized as integers, 'cast as float' was needed to return a decimal rather than an integer.
 ```
-SELECT LAST_NAME, ROUND(CAST(K as FLOAT) / CAST(GAMES as FLOAT),3) as K_perc 
+SELECT LAST_NAME, ROUND(CAST(K as FLOAT) / CAST(GAMES as FLOAT),3) as K_ratio 
  FROM (SELECT LAST_NAME, (COUNT(K1)+COUNT(K2)+COUNT(K3)+COUNT(K4)+COUNT(K5)) AS K, COUNT(GAME_ID) AS GAMES 
   FROM 
    (SELECT LAST_NAME, GAME_ID, 
@@ -165,5 +165,5 @@ SELECT LAST_NAME, ROUND(CAST(K as FLOAT) / CAST(GAMES as FLOAT),3) as K_perc
     WHEN Fifth='K' THEN 'K' END AS K5
   FROM RESULTS R JOIN PLAYERS P ON P.ID=R.PLAYER_ID)
  GROUP BY LAST_NAME)
-ORDER BY K_perc;
+ORDER BY K_ratio;
    ```
