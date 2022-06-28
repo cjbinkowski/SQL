@@ -167,7 +167,7 @@ SELECT LAST_NAME, ROUND(CAST(K as FLOAT) / CAST(GAMES as FLOAT),3) as K_ratio
  GROUP BY LAST_NAME)
 ORDER BY K_ratio;
    ```
-Outputting the Average Points Per Game versus a Left handed pitcher or a Right handed pitcher. I used a CTE here in order to have two queries for calling on points for each pitching type. 
+Outputting the Average Points Per Game versus a Left handed pitcher or a Right handed pitcher. I used a CTE here in order to have two queries for calling on points, one for each pitching type. 
 ```
 WITH Right AS
 (SELECT pp.first_name, avg(points) as RPoint 
