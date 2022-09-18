@@ -1,4 +1,4 @@
-### This database and analysis was created in SQLite Studio to track how each player performs over the season. Points are determined by rules followed by a family competition where a family member picks a player for each series and collects points with the player. Hopefully this will help get me above last place, which is where I ranked last season.
+### This database and analysis was created in SQLite Studio to track how each player performs over the season. Points are determined by rules followed by a family competition where a family member picks a player for each series and collects points with the player. 
 
 ### I have created corresponding Tableau dashboards for this project which can be found at https://public.tableau.com/app/profile/christina.binkowski
 
