@@ -1,5 +1,6 @@
 ### This database and analysis was created in SQLite Studio to track how each player performs over the season. Points are determined by rules followed by a family competition where a family member picks a player for each series and collects points with the player. Hopefully this will help get me above last place, which is where I ranked last season.
-  
+
+### I have created corresponding Tableau dashboards for this project which can be found at https://public.tableau.com/app/profile/christina.binkowski
 
 #### Creation of data tables
 ```
@@ -120,7 +121,16 @@ WHERE R.First NOT NULL
   AND Pitcher_Arm LIKE '%L%'
 Group BY P.ID;
 ```
-Outputting the total strikeout count for each player over all games
+For each game, I add a WHERE statement that shows only players that are in the lineup:
+`` WHERE/AND Player_ID IN (1,2,3,4) ``
+
+I have utilized other WHERE statements in place of pitcher arm when analyzing player performance, which include
+`` WHERE/AND Opponent = 'White Sox' ``
+`` WHERE/AND Date > 0800 ``
+
+(Use of WHERE or AND depending on if it is the sole WHERE statement or not)
+
+##### Outputting the total strikeout count for each player over all games
 ```
 SELECT P.Last_Name, 
 COUNT(K1) + COUNT(K2) + COUNT(K3) + COUNT(K4) + COUNT(K5) AS K 
