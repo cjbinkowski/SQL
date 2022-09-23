@@ -1,4 +1,5 @@
 #### This document contains SQL commands written by me to create a table for a hypothetical clothing store and to show requested details about the store
+#### Skills Showcased: Table Creation, Data Insertion, Data Selection to answer question about data
 ##### Table creation
 ``` 
 CREATE TABLE merchandise
