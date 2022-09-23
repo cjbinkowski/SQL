@@ -1,5 +1,5 @@
 ### Included are a collection of challenges from HackerRank and the queries I created to solve them.
-
+#### Skills Showcased: LIKE with brackets, String functions, answering mathematical questions, CAST, SQRT, POWER, String Query Outputs, CASE to make categories
 ### ~Easier Prompts
 **Query the list of CITY names starting with vowels (i.e., a, e, i, o, or u) from STATION. Your result cannot contain duplicates**
 ```
@@ -17,7 +17,7 @@ SELECT DISTINCT CITY
 ```
 SELECT DISTINCT CITY 
   FROM STATION 
-  WHERE CITY LIKE '[AEIOU]%[AEIOU
+  WHERE CITY LIKE '[AEIOU]%[AEIOU]'
 ```  
 **Query the list of CITY names from STATION that do not start with vowels. Your result cannot contain duplicates.**
 ```
