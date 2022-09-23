@@ -1,9 +1,9 @@
-### This file analyzes data from a database of sales over several months. The database has a table of customer information, and several tables for product sale details for specified months. I have written queries to find out certain answers to questions about the data*/
-    
+### This file analyzes data from a database of sales over several months. The database has a table of customer information, and several tables for product sale details for specified months. I have written queries to find out certain answers to questions about the data
+#### Skills Showcased: COUNT, DISTINCT, LIKE, IN, JOIN, GROUP BY, MIN, AVG, data selection to answer specific question about the data
 #### How many iPhones were sold in January?
 ```
 SELECT COUNT(*) FROM JanSales
-WHERE PRODUCT LIKE "%iphone%";
+WHERE Product LIKE "%iphone%";
 ```
 #### List the account numbers for each order in February
 ```
@@ -33,14 +33,14 @@ GROUP BY product;
 ```
 #### How many accounts bought more than 2 items in an order in February and what was the average amount spent
 ```
-SELECT Count (acctnum) , avg(price*quantity)
+SELECT COUNT (acctnum) , AVG(price*quantity)
 FROM FebSales f
 LEFT JOIN customers c
 ON f.orderID = c.order_id
 WHERE Quantity >2;
 ```
 #### What products were sold in Los Angeles and how many of each were sold
-``` SELECT product, sum(quantity)
+``` SELECT product, SUM(quantity)
 FROM FebSales
 WHERE location LIKE "%Los Angeles%"
 GROUP BY product;
