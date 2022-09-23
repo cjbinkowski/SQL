@@ -1,5 +1,7 @@
 #### SQLite Studio and a sample database were used in this project. The Database contains 11 tables named (albums, artists, customers, employees, genres, invoice_items, invoices, media_types, playlist_track, playlists, tracks). These tables have many joining fields. The table 'tracks' relates to the most other tables. Its connections are (playlist_track on TrackId, media_types on MediaTypeId, genres on GenreId, albums on AlbumId, invoice_items on TrackId). Below are queries designed to answer questions about the data.
 
+#### Skills Showcased: Operator Use, JOINs, Concatenation, GROUP BYs with aggregate functions, calculations within queries, Aliases, ORDER BYs, data selection to answer specific questions about the data
+
 ##### 1.Show Customers (their full names, customer ID, and country) who are not in the US.
  to find how the United States is written in this table
 ``SELECT Country FROM customers GROUP BY Country ORDER BY Country DESC; ``
@@ -46,7 +48,7 @@ SELECT DISTINCT BillingCountry
 FROM invoices
 ORDER BY BillingCountry;
 ```
-##### 6. show the invoices associated with each sales agent, include the Sales Agent's full name
+##### 6. show the invoices associated, with each sales agent, include the Sales Agent's full name
 ```
 SELECT e.FirstName||' '||e.LastName as Name, i.InvoiceId
 FROM Invoices i
