@@ -2,7 +2,7 @@
 
 ### I have created corresponding Tableau dashboards for this project which can be found at https://public.tableau.com/app/profile/christina.binkowski
 
-### Skills showcased: database/table creation, data type and field specifications, table format editing, multiple table JOINs, CASE queries, CTEs 
+### Skills showcased: database/table creation, data type and field specifications, table format editing, multi-table JOINs, CASE queries, CTEs 
 
 #### Creation of data tables
 ```
