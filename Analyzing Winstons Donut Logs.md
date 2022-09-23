@@ -1,4 +1,6 @@
 ### This document includes a table name winstons_donut_logs which was created by another individual. I used this data to create queries that show significant details about that data while practicing SQL skills
+#### Skills Showcased: Table creation, data insertion, GROUP BYs, multiple aggregate functions, CASE queries nested SELECTs, ORDER BYs
+
 #### ~Table creation 
 ```
 CREATE TABLE winstons_donut_logs (
