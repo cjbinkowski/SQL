@@ -1,3 +1,6 @@
+--This code analyzes data uploaded from https://ourworldindata.org/covid-deaths which contains data about global Covid-19 infections and deaths and vaccinations 
+--Performed in SQL Server
+
 --Death percentage per case of Covid in United States
 SELECT Location, date, total_cases, total_deaths, total_deaths/total_cases*100 AS DeathPercentage
 FROM [Covid Data]..CovidDeaths
