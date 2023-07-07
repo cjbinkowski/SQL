@@ -202,3 +202,4 @@ JOIN
 WHERE Pitcher_Arm ='L'
 GROUP BY p.First_Name;
 ```
+
